@@ -1,0 +1,32 @@
+[
+  {
+    "min_income": 0,
+    "max_income": 18200,
+    "rate": 0,
+    "plus": 0
+  },
+  {
+    "min_income": 18201,
+    "max_income": 45000,
+    "rate": 0.19,
+    "plus": 0
+  },
+  {
+    "min_income": 45001,
+    "max_income": 120000,
+    "rate": 0.325,
+    "plus": 5092
+  },
+  {
+    "min_income": 120001,
+    "max_income": 180000,
+    "rate": 0.37,
+    "plus": 29467
+  },
+  {
+    "min_income": 180001,
+    "max_income": null,
+    "rate": 0.45,
+    "plus": 51667
+  }
+]
