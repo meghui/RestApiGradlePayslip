@@ -35,26 +35,13 @@ public class Calculator {
         List<TaxRate> rates = mapper.readValue(jsonArray, new TypeReference<>() {});
 
         int incomeTax = -1;
-            if (annualSalary <= rates.get(0).getMax_income()) { //TODO replace number to variable in case of change
-                incomeTax = 0;
-            }
 
-            if (annualSalary <= rates.get(1).getMax_income() && annualSalary > rates.get(1).getMin_income()) {
-                incomeTax = Math.round(rates.get(1).getRate() * ((float)annualSalary - rates.get(1).getMin_income() + 1)/12);
+        for (TaxRate rate : rates) {
+            if (annualSalary <= rate.getMax_income()) {
+                incomeTax = Math.round((rate.getPlus() + rate.getRate() * ((float) annualSalary - rate.getMin_income()) + 1) / 12);
             }
-
-            if (annualSalary <= rates.get(2).getMax_income() && annualSalary > rates.get(2).getMin_income()) {
-                incomeTax = Math.round((rates.get(2).getPlus() + rates.get(2).getRate() * ((float)annualSalary - rates.get(2).getMin_income()) + 1) /12);
-            }
-
-            if (annualSalary <= rates.get(3).getMax_income() && annualSalary > rates.get(3).getMin_income()) {
-                incomeTax = Math.round((rates.get(3).getPlus() + rates.get(3).getRate() * ((float)annualSalary - rates.get(3).getMin_income()) + 1) /12);
-            }
-
-            if (annualSalary  > rates.get(4).getMin_income()) {
-                incomeTax = Math.round((rates.get(4).getPlus() + rates.get(4).getRate() * ((float)annualSalary - rates.get(4).getMin_income()) + 1) /12);
-            }
-            return incomeTax;
+        }
+        return incomeTax;
     }
 
     public int calSuper (int annualSalary, float rate) {
