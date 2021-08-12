@@ -1,4 +1,4 @@
-package com.meghui.restfulpayslip;
+package com.meghui.restfulpayslip.entities;
 
 /**
  * @author Meggie Xuan Hui

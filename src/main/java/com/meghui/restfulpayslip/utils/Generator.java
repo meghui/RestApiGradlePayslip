@@ -1,4 +1,7 @@
-package com.meghui.restfulpayslip;
+package com.meghui.restfulpayslip.utils;
+
+import com.meghui.restfulpayslip.entities.Employee;
+import com.meghui.restfulpayslip.entities.PaySlip;
 
 /**
  * @author Meggie Xuan Hui
@@ -38,48 +41,6 @@ public class Generator {
     }
 
 
-    public Employee generateEmployee (CSV csv) {
-        Employee emp = new Employee();
-
-        emp.setFirstName(csv.getFirstName().trim());
-        emp.setLastName(csv.getLastName().trim());
-        emp.setAnnualSalary(Integer.parseInt(csv.getAnnualSalary()));
-        emp.setSuperRate(Float.parseFloat(csv.getSuperRate()));//assume 09% 0.09
-        emp.setStartDateOfPayment(csv.getStartDateOfPayment());
-
-        return emp;
-    }
-
-    public CSV generateCSVFormatted (CSV csv) {
-        CSV csvFormatted = new CSV();
-        //Capitalised first letter
-        csvFormatted.setFirstName(csv.getFirstName().trim().substring(0,1).toUpperCase() + csv.getFirstName().trim().substring(1).toLowerCase());
-        csvFormatted.setLastName(csv.getLastName().trim().substring(0,1).toUpperCase() + csv.getLastName().trim().substring(1).toLowerCase());
-        csvFormatted.setAnnualSalary(csv.getAnnualSalary().trim());
-        if (csv.getSuperRate().contains("%")) {
-            csvFormatted.setSuperRate(String.valueOf(Float.parseFloat(csv.getSuperRate().trim().substring(0,csv.getSuperRate().trim().indexOf("%")))/100));
-        }else {
-            csvFormatted.setSuperRate(String.valueOf(Float.parseFloat(csv.getSuperRate())));
-        }
-
-        csvFormatted.setStartDateOfPayment(formatStartDate(csv.getStartDateOfPayment()));
-
-        return csvFormatted;
-    }
-
-
-    public CSV generateCSV (String st) {
-        CSV csv = new CSV();
-
-        String[] strings = st.split(",");
-        csv.setFirstName(strings[0].trim());
-        csv.setLastName(strings[1].trim());
-        csv.setAnnualSalary(strings[2].trim());
-        csv.setSuperRate(strings[3].trim());
-        csv.setStartDateOfPayment(strings[4].trim());
-
-        return csv;
-    }
     //formatStartDate() capital first letter and change to same length
     public String formatStartDate(String startDate) {
         String[] parts = startDate.split(" ",2);

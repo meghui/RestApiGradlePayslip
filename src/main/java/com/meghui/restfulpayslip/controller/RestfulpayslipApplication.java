@@ -1,5 +1,8 @@
-package com.meghui.restfulpayslip;
+package com.meghui.restfulpayslip.controller;
 
+import com.meghui.restfulpayslip.entities.Employee;
+import com.meghui.restfulpayslip.utils.Generator;
+import com.meghui.restfulpayslip.entities.PaySlip;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;

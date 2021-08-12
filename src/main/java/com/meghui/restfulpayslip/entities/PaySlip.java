@@ -1,4 +1,6 @@
-package com.meghui.restfulpayslip;
+package com.meghui.restfulpayslip.entities;
+
+import com.meghui.restfulpayslip.entities.Employee;
 
 /**
  * @author Meggie Xuan Hui

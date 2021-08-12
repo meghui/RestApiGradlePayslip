@@ -1,14 +1,13 @@
-package com.meghui.restfulpayslip;
+package com.meghui.restfulpayslip.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.meghui.restfulpayslip.entities.TaxRate;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -38,7 +37,8 @@ public class Calculator {
 
         for (TaxRate rate : rates) {
             if (annualSalary <= rate.getMax_income()) {
-                incomeTax = Math.round((rate.getPlus() + rate.getRate() * ((float) annualSalary - rate.getMin_income()) + 1) / 12);
+                incomeTax = Math.round((rate.getPlus()
+                        + rate.getRate() * ((float) annualSalary - rate.getMin_income()) + 1) / 12);
             }
         }
         return incomeTax;
