@@ -4,7 +4,7 @@ restfulpayslip
 
 JDK: 11 IDE: Intellij IDEA Sprint Boot: 2.5.3 Gradle
 
-Github: https://github.com/meghui/restfulpayslip
+Github: https://github.com/meghui/RestApiGradlePayslip
 
 API Demo on AWS: http://ec2-18-119-104-40.us-east-2.compute.amazonaws.com:8080/payslip
 
